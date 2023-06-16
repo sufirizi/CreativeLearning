@@ -1,0 +1,7 @@
+{
+  "name": "CreativeLearning",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

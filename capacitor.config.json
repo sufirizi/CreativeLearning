@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "CreativeLearning",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

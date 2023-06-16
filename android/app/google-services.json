@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "727791239096",
+    "project_id": "creativelearning-a76f3",
+    "storage_bucket": "creativelearning-a76f3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:727791239096:android:cd4703eabcb9515803594d",
+        "android_client_info": {
+          "package_name": "cl.ionic.creativelearning"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "727791239096-v04d2dg58mvbcr9dch5disuat04j37c2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCRI6FsgNBheP-5rlCDCE__QGGLM55KDHY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "727791239096-v04d2dg58mvbcr9dch5disuat04j37c2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
