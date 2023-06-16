@@ -1,0 +1,75 @@
+h1,h2,h3,h4,h5,p{
+     text-align: center;
+     font-weight: bold;
+  }
+  
+  h5{ 
+     color: dodgerblue;
+     padding: 15px 0px 0px 0px;
+  }
+  h4{
+     width: 100%;
+     background-color: #4b4949;
+     padding: 10px 0px 10px 0px;
+     color: white;
+  }
+ 
+  ion-navbar{
+     border-bottom: 1px solid gray;
+  }
+
+  ion-content{
+
+    --ion-background-color:#E1D9F2;
+  }
+
+.logo img {
+  max-width: 100%;
+  border: 0;
+  width: 210px;
+  height: 50px;
+  text-align: center;
+  margin-top: 0px;
+  margin-left: 0px;
+}
+
+.features-item{
+  display: inline-block;
+  width: 33.33%;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+.latest-notice{
+  border: 1px solid darkgrey;
+  padding: 2px;
+  background-image: url('https://i.pinimg.com/564x/e7/b7/7e/e7b77e3c2adc169aa331f39332e2c6aa.jpg');
+  color: white;
+}
+.contact-section{
+  text-align: center;
+  padding: 5px 0px 5px 0px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 1px solid cornflowerblue;
+  border-radius: 10px;
+  background-color: lightgreen; width: 100%;
+}
+.contact-section a{
+   color: black;
+   font-size: 25px;
+   font-weight: 500;
+   text-decoration: none;
+}
+
+.star-item{
+  display: inline-block;
+  width: 50%;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+.star-item img{
+  border: 1px solid bisque;
+  border-radius: 20px;
+}

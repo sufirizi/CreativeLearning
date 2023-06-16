@@ -1,0 +1,20 @@
+<ion-header>  
+  <ion-toolbar color="primary"> 
+  <ion-buttons slot="start" routerLink="..">
+    <ion-back-button></ion-back-button>
+  </ion-buttons>  
+    <ion-title>Details</ion-title>
+  </ion-toolbar>
+</ion-header> 
+ 
+<ion-content padding>
+  <div> 
+    <div class="latest-notice" *ngFor="let x of post;let i=index"> 
+      <h4>{{ x.title.rendered }}</h4>
+      <p [innerHTML]="x.content?.rendered">{{ x.content?.rendered }}</p>
+    </div>
+  </div>
+  </ion-content>
+  <ion-footer color="primary" style="background-color:#A55EEA; color: azure; text-align: center;">
+    <p>Copyright@2021</p>
+  </ion-footer>

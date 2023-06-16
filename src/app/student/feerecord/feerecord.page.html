@@ -1,0 +1,52 @@
+<ion-header> 
+  <ion-toolbar color="primary"> 
+  <ion-buttons slot="start" routerLink="..">
+    <ion-back-button></ion-back-button>
+  </ion-buttons>  
+    <ion-title>Fee Record</ion-title>
+  </ion-toolbar>
+</ion-header> 
+
+<ion-content>
+
+  <ion-grid class="ion-text-center">
+
+    <ion-row class="ion-margin">
+      <ion-col>
+        <ion-title>
+          <ion-text color="default">
+            {{options?.acf.year}}
+          </ion-text>
+        </ion-title>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="header-row">
+      <ion-col>
+        <ion-text>Month</ion-text>
+      </ion-col>
+      <ion-col>
+        <ion-text>Status</ion-text>
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngFor="let x of items.data;let i=index">
+      <ion-col>
+        <ion-text>
+          {{x.month}}
+        </ion-text>
+      </ion-col>
+        <ion-col>
+          <ion-text>
+            {{x.status}}
+          </ion-text>
+        </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content> 
+<ion-footer color="primary" style="background-color:#A55EEA; color: azure; text-align: center;">
+  <p>Copyright@2021</p>
+</ion-footer>
+
+

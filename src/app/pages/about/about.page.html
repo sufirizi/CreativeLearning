@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar color="primary"> 
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>  
+    </ion-buttons>  
+    <ion-title>About Us</ion-title>
+  </ion-toolbar>   
+</ion-header> 
+ 
+<ion-content class="main-content" padding>
+  <div class="founder" padding>
+    <div>
+      <h2 style="text-align: center;">{{ singlepage?.title.rendered }} the founder</h2>
+    </div>
+    <div>
+      <img src="{{ singlepage?.media_url }}" class="center">
+    </div>
+    <div>
+        <p [innerHTML]="singlepage?.content.rendered">{{ singlepage?.content.rendered }}</p>
+    </div>
+  </div>
+  
+</ion-content>
+<ion-footer color="primary" style="background-color:#A55EEA; color: azure; text-align: center;">
+  <p>Copyright@2021</p>
+</ion-footer>

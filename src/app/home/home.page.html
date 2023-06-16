@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <!-- <ion-title>Home</ion-title> -->
+    <div class="logo">
+      <img src="../assets/imgs/creative.png">
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding  class="main-content">
+
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="home"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <div class="star-peformer">
+    <h4>Stars Of The Month {{ stars?.month }} </h4>
+    <div class="star-item" *ngFor="let row of stars?.data">
+        <img src="{{ row.image}}" style="height: 120px; width: 100px;">
+        <p style="margin: 1px;" >{{ row.name }} </p>
+        <p style="margin: 1px;">Class: {{ row.class }}</p>
+    </div>
+  </div>
+
+  <!-- <ion-slides loop="true" speed="300" pager="true">
+    <ion-slide *ngFor="let x of items; let i=index">
+      <a href="#">
+        <img src="{{ x.featured_image_src }}" style="height: 150px; width: 100%;">
+      </a>
+    </ion-slide>
+  </ion-slides>  -->
+<div class="features">
+    <h4>Why Choose Us?</h4>
+    <div class="features-item" *ngFor="let row of features.acf?.features">
+        <img src="{{ row.icons}}">
+        <p>{{ row.title }}</p>
+    </div>
+</div>
+<div style="padding: 2px;">
+  <h4>Latest Notice</h4>
+  <div class="latest-notice" *ngFor="let row of notice">
+    <h5>{{ row.title.rendered }}</h5>
+    <p [innerHTML]="row.content.rendered">{{ row.content.rendered }}</p>
+  </div>
+</div>
+<div class="download">
+  <h4>Download The Forms</h4>
+  <div class="features-item" *ngFor="let row of features.acf?.forms">
+      <img src="{{ row.icon}}" (click)="downloadForm(row.form)">
+      <p style="font-size: 13px;">{{ row.title }}</p>
+  </div>
+</div>
+
+<div class="contact-section">
+  <!-- <h5 style="margin: -2px;">Call Now!</h5> -->
+  <a href="tel:{{options.acf?.contact}}" style="padding: 0px;">Call: {{options.acf?.contact}}</a>
+  </div>
+</ion-content>
+<!-- <ion-footer color="primary" style="background-color:#A55EEA; color: azure; text-align: center;">
+    <p>Copyright@2021</p>
+</ion-footer> -->

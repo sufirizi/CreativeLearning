@@ -1,0 +1,19 @@
+<ion-header> 
+  <ion-toolbar color="primary">  
+  <ion-buttons slot="start" routerLink="..">
+    <ion-back-button></ion-back-button> 
+  </ion-buttons>   
+    <ion-title>My Attendance</ion-title> 
+  </ion-toolbar>
+</ion-header> 
+
+<ion-content>
+  <ion-item *ngFor="let x of response?.data; let i=index" >
+    <ion-label>{{x.date}} ({{x.day}})</ion-label>
+    <ion-badge slot="end" color="danger" *ngIf="x.status==0">Absent</ion-badge>
+    <ion-badge slot="end" color="success" *ngIf="x.status==1">Present</ion-badge>
+  </ion-item>
+</ion-content>
+<ion-footer color="primary" style="background-color:#A55EEA; color: azure; text-align: center;">
+  <p>Copyright@2021</p>
+</ion-footer>

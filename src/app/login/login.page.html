@@ -1,0 +1,41 @@
+<ion-content class="ion-padding">
+
+  <div class="container ion-padding">
+    <div>
+      <h2>SIGN IN</h2>
+      <form #form="ngForm" (ngSubmit)="login(form)" method="post">
+        <div class="primary-input">
+          <ion-label>Email</ion-label>
+          <ion-input type="email" ngModel name="email"></ion-input>
+        </div>
+        <div class="primary-input margin-bottom-10">
+          <ion-label>Password</ion-label>
+          <ion-input ngModel type="password" name="password" ></ion-input>
+        </div> 
+
+
+        <!-- <div class="ion-text-right forget-passwd no-focus" routerLink="/forget-password" routerDirection="forward">
+          <a href="#">Forget password?</a>
+        </div> -->
+        <ion-button color="primary" type="submit" class="primary-button" expand="block" shape="round">Sign In</ion-button>
+      </form> 
+      <div class="social" routerLink="/home">
+          <a href="#">SKIP LOGIN</a>
+        <!-- <ion-icon name="logo-facebook" class="fb"></ion-icon>
+        <ion-icon name="logo-google" class="google"></ion-icon>
+        <ion-icon name="logo-apple" class="apple"></ion-icon> -->
+      </div>
+
+      <div class="theme-switcher"> 
+        <ion-label>
+          Toggle Dark Theme
+        </ion-label>
+        <ion-toggle slot="end" [checked]="isDarkMode" (ionChange)="onDarkMode($event)"></ion-toggle>
+      </div>
+
+      <!-- <div class="ion-text-center footer no-focus" routerLink="/register" routerDirection="forward">
+        <a href="#">Don't have an Account? <span>Sign up</span></a>
+      </div> -->
+    </div>
+  </div>
+</ion-content>

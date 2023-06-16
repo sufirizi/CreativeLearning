@@ -1,0 +1,31 @@
+<ion-header> 
+  <ion-toolbar color="primary"> 
+  <ion-buttons slot="start" routerLink="..">
+    <ion-back-button></ion-back-button> 
+  </ion-buttons> 
+    <ion-title>Change Picture</ion-title>
+  </ion-toolbar> 
+</ion-header> 
+
+<ion-content>
+
+  <div class="container ion-padding">
+    <div>
+      <p>Select your photo</p>
+      <div class="imagePreview" *ngIf="imageURL && imageURL !== ''">
+        <img [src]="imageURL" alt="picture">
+      </div>   
+      <ion-button expand="full"> 
+        <ion-icon lazy="true" slot="start" name="image"></ion-icon>
+        <!-- <ion-label slot="end">Upload</ion-label> -->
+        <input type="file" (change)="loadImageFromDevice($event)" id="file-input">
+      </ion-button>
+      
+      <ion-button color="primary" type="submit" (click)="login()" class="primary-button" expand="block" shape="round">Upload</ion-button>
+      
+
+      
+    </div>
+  </div>   
+
+</ion-content>

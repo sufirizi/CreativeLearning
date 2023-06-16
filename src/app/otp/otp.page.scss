@@ -1,0 +1,20 @@
+.container {
+  margin-top: 50px;
+
+  img {
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-weight: bold;
+  }
+
+  .resend {
+    font-size: 14px;
+    margin-bottom: 26px;
+
+    span {
+      color: var(--ion-color-primary);
+    }
+  }
+}

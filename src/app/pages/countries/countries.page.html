@@ -1,0 +1,27 @@
+ <ion-header> 
+  <ion-toolbar color="primary"> 
+  <ion-buttons slot="start" routerLink="..">
+    <ion-back-button></ion-back-button> 
+  </ion-buttons> 
+    <ion-title>Countries</ion-title>
+  </ion-toolbar>
+</ion-header> 
+
+<ion-content padding class="main-content">
+  <h4 class="post-head">Total Countries: {{ count }}</h4> 
+  <div class="course-tab" padding *ngFor="let x of countries;let i=index">
+    <div>
+      <h4 class="post-title">{{ x?.name }}</h4>
+    </div>
+    <div class="flag">
+      <img src="{{ x.flags?.png }}" class="center"> 
+    </div>
+    <div class="dtl-btn"> 
+        <ion-button class="detail-button" (click)="openModal(x?.name)">View More</ion-button>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer color="primary" style="background-color:#A55EEA; color: azure; text-align: center;">
+  <p>Copyright@2021</p>
+</ion-footer>

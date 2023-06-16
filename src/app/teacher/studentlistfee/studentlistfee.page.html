@@ -1,0 +1,107 @@
+<ion-header>  
+  <ion-toolbar color="primary"> 
+  <ion-buttons slot="start" routerLink="..">
+    <ion-back-button></ion-back-button>
+  </ion-buttons>  
+    <ion-title>Student's List</ion-title> 
+  </ion-toolbar>
+</ion-header> 
+
+<ion-content style="width: 100%;"> 
+  <!-- <ion-item *ngFor="let x of items?.data;let i=index" [routerLink]="['/studentfeerecord/', x.id]"> 
+    <ion-thumbnail slot="start">
+      <img src="{{ x.image}}">  
+    </ion-thumbnail>
+    <ion-label>
+      <h3>{{ x.title }}</h3>
+    </ion-label>
+  </ion-item> -->
+  <ion-slides loop="true" speed="300" pager="true">
+    <ion-slide *ngFor="let x of items?.data;let i=index"> <!-- *ngFor="let x of items; let i=index" -->
+      <ion-list>  
+        <ion-item>  
+          <ion-grid class="ion-text-center"> 
+            <ion-row> 
+              <ion-col size="4" class="ion-text-center" *ngIf="x?.image!==false">
+                <img src="{{ x?.image}}" style="border-radius: 10px; height: 100px; width: 120px;">
+              </ion-col>
+              <ion-col size="4" class="ion-text-center" *ngIf="x?.image==false">
+                <img src="../assets/imgs/no_photo.jpg" style="border-radius: 10px; height: 100px; width: 120px;">
+              </ion-col>
+              <ion-col size="8" class="ion-text-left">  
+                <b>ID: {{x.uid}}</b><br>  
+                <b>{{ x.title }}</b><br>
+                <b>C/O: {{ x.father }}</b><br>
+                <b>Fee: {{ x.fee | currency:'INR'}}</b><br>
+                <b>Joined: {{ x.joined }}</b><br>
+              </ion-col>  
+            </ion-row>
+            <!-- <ion-row>  
+                 
+            </ion-row> -->
+            <ion-row class="ion-align-items-center">
+              <ion-col size="12">
+                <a *ngIf="x.mobile!=null"  class="call-btn" href="tel:{{x.mobile}}" expand="block" style="border-radius: 5px;">
+                  Call: {{x.mobile}}
+                </a>
+                <ion-button expand="block" style="border-radius: 5px; margin-top: 10px;" [routerLink]="['/studentfeerecord/', x.id]">
+                  Update Fee
+                </ion-button>  
+              </ion-col>  
+            </ion-row> 
+            <ion-row class="ion-margin">
+              <ion-col>
+                <ion-title>
+                  <ion-text color="default">
+                    {{options?.acf.year}}
+                  </ion-text>
+                </ion-title>
+              </ion-col>
+            </ion-row>
+        
+            <ion-row class="header-row" style="width: 100%;">
+              <ion-col> 
+                <ion-text>Month</ion-text>
+              </ion-col>
+              <ion-col>
+                <ion-text>Date</ion-text>
+              </ion-col>
+              <ion-col> 
+                <ion-text>Status</ion-text>
+              </ion-col>
+            </ion-row>
+        
+            <ion-row *ngFor="let y of x?.feerecord;let i=index">
+              <ion-col>
+                <ion-text>
+                  {{y?.month}}
+                </ion-text>
+              </ion-col>
+              <ion-col>
+                <ion-text style="font-size: x-small;">
+                  {{y?.date}} 
+                </ion-text> 
+              </ion-col>
+              <ion-col>
+                <ion-text>
+                  <p color="dark" *ngIf="y.status=='PAID'" style="font-size: x-small;">PAID</p>
+                  <!-- <ion-checkbox color="dark" (ionChange)="onChange(i+1, $event.target.checked)" *ngIf="x.status=='DUE'"></ion-checkbox> -->
+                </ion-text>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+          
+        </ion-item>  
+      </ion-list>
+    </ion-slide>
+    <br><br>
+  </ion-slides>
+  <ion-item *ngIf="items==''"> 
+    <ion-label>
+      <h3>No students available!</h3>
+    </ion-label>
+  </ion-item>
+</ion-content>
+<ion-footer color="primary" style="background-color:#A55EEA; color: azure; text-align: center;">
+  <p>Copyright@2021</p>
+</ion-footer>

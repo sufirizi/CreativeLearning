@@ -1,0 +1,30 @@
+<ion-header> 
+  <ion-toolbar color="primary"> 
+  <ion-buttons slot="start" routerLink="..">
+    <ion-back-button></ion-back-button> 
+  </ion-buttons>   
+    <ion-title>My Attendance</ion-title> 
+  </ion-toolbar>
+</ion-header>
+  
+<ion-content> 
+  <ion-list>
+    <ion-row class="ion-margin">
+      <ion-col>
+        <ion-title>
+          <ion-text color="default">
+            {{options?.acf.year}}
+          </ion-text>
+        </ion-title>
+      </ion-col>
+    </ion-row>
+    <!-- <ion-label style="text-align: center;">{{options?.acf.year}}</ion-label> -->
+    
+    <ion-item *ngFor="let x of months;let i=index" [routerLink]="['/monthlyattendance/', i+1, uid]">
+      <ion-label>{{x.month}}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
+<ion-footer color="primary" style="background-color:#A55EEA; color: azure; text-align: center;">
+  <p>Copyright@2021</p>
+</ion-footer>

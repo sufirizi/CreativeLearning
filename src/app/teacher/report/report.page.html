@@ -1,0 +1,209 @@
+<ion-header> 
+  <ion-toolbar color="primary"> 
+  <ion-buttons slot="start" routerLink="..">
+    <ion-back-button></ion-back-button> 
+  </ion-buttons> 
+    <ion-title>Report</ion-title>
+  </ion-toolbar> 
+</ion-header> 
+<ion-content>
+  <h2 style="text-align: center;">Senior Classes</h2>
+  <ion-row class="header-row">
+    <ion-col size="7">
+      <ion-text style="padding: 10px;">Classes</ion-text>
+    </ion-col>
+    <ion-col size="5">
+      <ion-text>Total Fee</ion-text>
+    </ion-col>
+  </ion-row>
+  <ion-row style="border-bottom: 1px solid black;">
+    <ion-col size="8">
+      <ion-text style="padding: 10px;">
+        Computer ({{items?.count_computer}})
+      </ion-text>
+    </ion-col>
+    <ion-col size="4">
+      <ion-text>
+        {{items?.total_fee_computer | currency:'INR'}}
+      </ion-text>
+    </ion-col>
+  </ion-row>
+  <ion-row style="border-bottom: 1px solid black;">
+    <ion-col size="8">
+      <ion-text style="padding: 10px;">
+        English Medium ({{items?.count_english}})
+      </ion-text>
+    </ion-col>
+    <ion-col size="4">
+      <ion-text>
+        {{items?.total_fee_english | currency:'INR'}}
+      </ion-text>
+    </ion-col>
+  </ion-row>
+  <ion-row style="border-bottom: 1px solid black;">
+    <ion-col size="8">
+      <ion-text style="padding: 10px;">
+        Hindi Medium ({{items?.count_hindi}})
+      </ion-text>
+    </ion-col>
+    <ion-col size="4">
+      <ion-text>
+        {{items?.total_fee_hindi | currency:'INR'}}
+      </ion-text>
+    </ion-col>
+  </ion-row>
+  <ion-row style="border-bottom: 1px solid black;">
+    <ion-col size="8">
+      <ion-text style="padding: 10px;">
+        XI and XII ({{items?.count_xi}})
+      </ion-text>
+    </ion-col>
+    <ion-col size="4">
+      <ion-text>
+        {{items?.total_fee_xi | currency:'INR'}}
+      </ion-text>
+    </ion-col>
+  </ion-row>
+  <ion-row style="border-bottom: 1px solid black;">
+    <ion-col size="8">
+      <ion-text style="padding: 10px;">
+        Class X ({{items?.count_x}})
+      </ion-text>
+    </ion-col>
+    <ion-col size="4">
+      <ion-text>
+        {{items?.total_fee_x | currency:'INR'}}
+      </ion-text>
+    </ion-col>
+  </ion-row>
+  <ion-row style="border-bottom: 1px solid black;">
+    <ion-col size="8">
+      <ion-text style="padding: 10px;">
+        Class IX ({{items?.count_ix}})
+      </ion-text>
+    </ion-col>
+    <ion-col size="4">
+      <ion-text>
+        {{items?.total_fee_ix | currency:'INR'}}
+      </ion-text>
+    </ion-col>
+  </ion-row>
+  <br>
+  <ion-row style="background-color: rgb(151, 175, 197); border-bottom: 1px solid black;">
+    <ion-col size="12">
+      <ion-text style="padding: 10px;">
+        Total Students: ({{items?.allstudent}})
+      </ion-text>
+    </ion-col>
+  </ion-row>
+  <ion-row style="background-color: rgb(151, 175, 197); border-bottom: 1px solid black;">
+    <ion-col size="12">
+      <ion-text style="padding: 10px;">
+        Total Earning: ({{items?.alltotal | currency:'INR'}})
+      </ion-text>
+    </ion-col>
+  </ion-row>
+  <!-- Junior classes report -->
+  <h2 style="text-align: center;">Junior Classes</h2>
+  <ion-row class="header-row">
+    <ion-col size="7">
+      <ion-text style="padding: 10px;">Classes</ion-text>
+    </ion-col>
+    <ion-col size="5">
+      <ion-text>Total Fee</ion-text>
+    </ion-col>
+  </ion-row>
+  <ion-row style="border-bottom: 1px solid black;">
+    <ion-col size="8">
+      <ion-text style="padding: 10px;">
+        Junior (upto III) ({{items2?.count_junior}})
+      </ion-text>
+    </ion-col>
+    <ion-col size="4">
+      <ion-text>
+        {{items2?.total_fee_junior | currency:'INR'}}
+      </ion-text>
+    </ion-col>
+  </ion-row>
+  <ion-row style="border-bottom: 1px solid black;">
+    <ion-col size="8">
+      <ion-text style="padding: 10px;">
+        IV ({{items2?.count_iv}})
+      </ion-text>
+    </ion-col>
+    <ion-col size="4">
+      <ion-text>
+        {{items2?.total_fee_iv | currency:'INR'}}
+      </ion-text>
+    </ion-col>
+  </ion-row>
+  <ion-row style="border-bottom: 1px solid black;">
+    <ion-col size="8">
+      <ion-text style="padding: 10px;">
+        V and VI ({{items2?.count_v}})
+      </ion-text>
+    </ion-col>
+    <ion-col size="4">
+      <ion-text>
+        {{items2?.total_fee_v | currency:'INR'}}
+      </ion-text>
+    </ion-col>
+  </ion-row>
+  <ion-row style="border-bottom: 1px solid black;">
+    <ion-col size="8">
+      <ion-text style="padding: 10px;">
+        VII ({{items2?.count_vii}})
+      </ion-text>
+    </ion-col>
+    <ion-col size="4">
+      <ion-text>
+        {{items2?.total_fee_vii | currency:'INR'}}
+      </ion-text>
+    </ion-col>
+  </ion-row>
+  <ion-row style="border-bottom: 1px solid black;">
+    <ion-col size="8">
+      <ion-text style="padding: 10px;">
+        VIII ({{items2?.count_viii}})
+      </ion-text>
+    </ion-col>
+    <ion-col size="4">
+      <ion-text>
+        {{items2?.total_fee_viii | currency:'INR'}}
+      </ion-text>
+    </ion-col>
+  </ion-row>
+  <br>
+  <ion-row style="background-color: rgb(151, 175, 197); border-bottom: 1px solid black;">
+    <ion-col size="12">
+      <ion-text style="padding: 10px;">
+        Total Students: ({{items2?.allstudent}})
+      </ion-text>
+    </ion-col>
+  </ion-row>
+  <ion-row style="background-color: rgb(151, 175, 197); border-bottom: 1px solid black;">
+    <ion-col size="12">
+      <ion-text style="padding: 10px;">
+        Total Earning: ({{items2?.alltotal | currency:'INR'}})
+      </ion-text>
+    </ion-col>
+  </ion-row>
+  <br>
+  <ion-row style="background-color: plum; border-bottom: 1px solid black;">
+    <ion-col size="12">
+      <ion-text style="padding: 10px;">
+        Overall Students: ({{items?.allstudent+items2?.allstudent}})
+      </ion-text>
+    </ion-col>
+  </ion-row>
+  <ion-row style="background-color: plum; border-bottom: 1px solid black;">
+    <ion-col size="12">
+      <ion-text style="padding: 10px;">
+        Overall Earning: ({{items?.alltotal+items2?.alltotal | currency:'INR'}})
+      </ion-text>
+    </ion-col>
+  </ion-row>
+  <br><br>
+  <br><br>
+  <!-- Junior classes report -->
+</ion-content> 

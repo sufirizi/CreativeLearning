@@ -1,0 +1,67 @@
+<ion-header> 
+  <ion-toolbar color="primary"> 
+  <ion-buttons slot="start" routerLink="..">
+    <ion-back-button></ion-back-button> 
+  </ion-buttons>   
+    <ion-title>Edit Student</ion-title> 
+  </ion-toolbar> 
+</ion-header> 
+
+  <ion-content class="container ion-padding">
+    <form #form="ngForm" (ngSubmit)="update(form)" method="post">
+        <div class="primary-input">
+          <ion-label>Full Name</ion-label>
+          <ion-input type="text" ngModel name="username" value="{{userDetails?.name}}"></ion-input>
+        </div>
+        <div class="primary-input">
+          <ion-label>Father's Name</ion-label>
+          <ion-input type="text" ngModel name="father" value="{{userDetails?.meta.father}}"></ion-input>
+        </div>
+        <div class="primary-input">
+          <ion-label>Mobile Number</ion-label>
+          <ion-input type="text" ngModel name="mobile" value="{{userDetails?.meta.mobile}}"></ion-input> 
+        </div>
+        <div class="primary-input">
+          <ion-select ngModel name="batch" [(ngModel)]="dialCode">
+            <ion-select-option value="">Select Batch</ion-select-option> <!-- *ngIf="x.name==userDetails?.class"-->
+            <ion-select-option *ngFor="let x of items;let i=index" value="{{x.name}}" [selected]="x.name==userDetails?.class">{{x.name}}</ion-select-option>
+          </ion-select>
+        </div>
+        <div class="primary-input"> 
+          <ion-label>Class</ion-label> 
+          <ion-input type="text" ngModel name="class" value="{{userDetails?.meta.class}}"></ion-input>
+        </div>
+        <div class="primary-input"> 
+          <ion-label>School</ion-label>
+          <ion-input type="text" ngModel name="school" value="{{userDetails?.meta.school}}"></ion-input>
+        </div>
+        <div class="primary-input">  
+          <ion-label>Date of birth</ion-label>
+          <ion-input type="text" ngModel name="dob" placeholder="dd-mm-yyyy" value="{{userDetails?.meta.dob}}"></ion-input>
+        </div>
+        <div class="primary-input"> 
+          <ion-label>Email</ion-label>
+          <ion-input type="email" ngModel name="email" value="{{userDetails?.email}}"></ion-input>
+        </div>
+        <div class="primary-input"> 
+          <ion-label>Address</ion-label>
+          <ion-input type="text" ngModel name="address" value="{{userDetails?.meta.address}}"></ion-input>
+        </div>
+        <div class="primary-input" *ngIf="role=='teacher'"> 
+          <ion-label>Monthly Fee</ion-label>
+          <ion-input type="fee" ngModel name="fee" value="{{userDetails?.fee}}" ></ion-input> <!--disabled="true"-->
+        </div>
+        <div class="primary-input" *ngIf="role=='student'"> 
+          <ion-label>Monthly Fee</ion-label>
+          <ion-input type="fee" ngModel name="fee" value="{{userDetails?.fee}}" readonly></ion-input> <!--disabled="true"-->
+        </div>
+        <div class="primary-input margin-bottom-10">
+          <ion-label>Password</ion-label>
+          <ion-input type="password" ngModel name="password"></ion-input>
+        </div>
+        <ion-button type="submit" color="primary" class="primary-button" expand="block" shape="round" routerDirection="forward">Update</ion-button>
+      </form>
+</ion-content>
+<ion-footer color="primary" style="background-color:#A55EEA; color: azure; text-align: center;">
+  <p>Copyright@2021</p>
+</ion-footer>

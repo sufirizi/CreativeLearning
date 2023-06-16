@@ -1,0 +1,48 @@
+<ion-header> 
+  <ion-toolbar color="primary"> 
+  <ion-buttons slot="start" routerLink="..">
+    <ion-back-button></ion-back-button> 
+  </ion-buttons>   
+    <ion-title>Add Student</ion-title>
+  </ion-toolbar>
+</ion-header> 
+
+<ion-content class="ion-padding">
+ 
+  <div class="container ion-padding">  
+      <form #form="ngForm" (ngSubmit)="register(form)" method="post">
+          <div class="primary-input">
+            <ion-label>Full Name</ion-label>
+            <ion-input type="text" ngModel name="username"></ion-input>
+          </div>
+          <div class="primary-input">
+            <ion-label>Father's Name</ion-label>
+            <ion-input type="text" ngModel name="father"></ion-input>
+          </div>
+          <div class="primary-input">
+            <ion-label>Mobile Number</ion-label>
+            <ion-input type="text" ngModel name="mobile"></ion-input> 
+          </div>
+          <ion-item>
+            <ion-label>Batch</ion-label>
+            <ion-select ngModel name="class">
+              <!-- <ion-select-option value="">Select Class</ion-select-option> -->
+              <ion-select-option *ngFor="let x of items;let i=index" value="{{x.name}}">{{x.name}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <div class="primary-input"> 
+            <ion-label>Email</ion-label>
+            <ion-input type="email" ngModel name="email"></ion-input>
+          </div>
+          <div class="primary-input margin-bottom-10">
+            <ion-label>Password</ion-label>
+            <ion-input type="password" ngModel name="password"></ion-input>
+          </div>
+          <ion-button type="submit" color="primary" class="primary-button" expand="block" shape="round" routerDirection="forward">Submit</ion-button>
+        </form>
+  </div>
+</ion-content>
+
+<ion-footer color="primary" style="background-color:#A55EEA; color: azure; text-align: center;">
+  <p>Copyright@2021</p>
+</ion-footer> .

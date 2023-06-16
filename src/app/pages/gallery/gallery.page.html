@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar color="primary">  
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>  
+    </ion-buttons>  
+    <ion-title>Gallery</ion-title>
+  </ion-toolbar>   
+</ion-header> 
+
+<ion-content padding class="main-content">
+  <div class="course-tab" padding *ngFor="let x of items;let i=index">
+  <div>
+    <h4 class="post-title">{{ x.title.rendered }}</h4>
+  </div>
+  <div>
+    <img src="{{ x.featured_image_src }}" class="center">
+  </div>
+</div>
+</ion-content>
+<ion-footer color="primary" style="background-color:#A55EEA; color: azure; text-align: center;">
+  <p>Copyright@2021</p>
+</ion-footer>

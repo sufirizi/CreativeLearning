@@ -1,0 +1,51 @@
+<ion-header> 
+  <ion-toolbar color="primary"> 
+  <ion-buttons slot="start" routerLink="..">
+    <ion-back-button></ion-back-button> 
+  </ion-buttons> 
+    <ion-title>Upload File</ion-title>
+  </ion-toolbar> 
+</ion-header> 
+
+<ion-content>
+  <!-- <ion-button expand="full">
+    <ion-icon lazy="true" slot="start" name="image"></ion-icon>
+    <ion-label slot="end">Upload Image</ion-label>
+    <input type="file" (change)="loadImageFromDevice($event)" id="file-input"
+      accept="image/png, image/jpeg">
+  </ion-button> -->
+
+  <div class="container ion-padding">
+    <div>
+      <h2>Upload</h2>  
+      <ion-button expand="full"> 
+        <ion-icon lazy="true" slot="start" name="image"></ion-icon>
+        <!-- <ion-label slot="end">Upload</ion-label> -->
+        <input type="file" (change)="loadImageFromDevice($event)" id="file-input">
+      </ion-button>
+      <form #form="ngForm" (ngSubmit)="login(form)" method="post">
+        <div class="primary-input">
+          <ion-label>Title</ion-label>
+          <ion-input type="text" ngModel name="title"></ion-input>
+        </div>
+        <div class="primary-input margin-bottom-10">
+          <ion-select ngModel name="subject">
+            <ion-select-option value="">Select Subject</ion-select-option>
+            <ion-select-option *ngFor="let x of items;let i=index" value="{{x.slug}}">{{x.name}}</ion-select-option>
+          </ion-select>
+        </div>
+        <ion-button color="primary" type="submit" class="primary-button" expand="block" shape="round">Upload</ion-button>
+      </form> 
+    </div>
+  </div>   
+  <ion-list>
+    <h2 style="text-align: center;">You Contribution <ion-icon name="heart" color="danger"></ion-icon></h2>
+    <ion-item *ngFor="let x of uploads?.data;let i=index" (click)="openLink(x.id)" style="cursor: pointer;">
+      <ion-label>{{i+1}}. {{x.title}} ({{x.date}})</ion-label>
+      <ion-icon name="download" item-end></ion-icon>
+    </ion-item>
+  </ion-list>
+
+
+
+</ion-content>

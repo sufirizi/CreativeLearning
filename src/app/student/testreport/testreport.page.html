@@ -1,0 +1,30 @@
+<ion-header>  
+  <ion-toolbar color="primary">  
+  <ion-buttons slot="start" routerLink="..">
+    <ion-back-button></ion-back-button>
+  </ion-buttons>  
+    <ion-title>Test's Report</ion-title> 
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card *ngFor="let x of items?.data; let i=index">
+    <ion-item>
+      <!-- <ion-icon name="pin" slot="start"></ion-icon> *ngIf="x.status==0"-->
+      <ion-label>{{x?.subject}} ({{x?.date}})</ion-label>
+      <ion-badge slot="end" color="danger" *ngIf="x?.result=='FAIL'">FAIL</ion-badge> 
+      <ion-badge slot="end" color="success" *ngIf="x?.result=='PASS'">PASS</ion-badge>
+    </ion-item>
+  
+    <ion-card-content>
+      <p>Full Marks: {{x?.full_marks}}</p>
+      <p>Marks Obtained: {{x?.marks_obtained}}</p>
+      <p>Remarks: {{x?.remarks}}</p>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+<ion-footer color="primary" style="background-color:#A55EEA; color: azure; text-align: center;">
+  <p>Copyright@2021</p>
+  </ion-footer>

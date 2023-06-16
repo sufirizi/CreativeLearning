@@ -1,0 +1,19 @@
+<ion-header> 
+  <ion-toolbar color="primary"> 
+  <ion-buttons slot="start" routerLink="..">
+    <ion-back-button></ion-back-button> 
+  </ion-buttons> 
+    <ion-title>Continents</ion-title>
+  </ion-toolbar>
+</ion-header> 
+  
+<ion-content padding>  
+  <ion-list>
+    <ion-item *ngFor="let x of items;let i=index" [routerLink]="['/countries/', x.continent]">
+      <ion-label>{{x.continent}}</ion-label>
+    </ion-item> 
+  </ion-list>
+</ion-content>
+<ion-footer color="primary" style="background-color:#A55EEA; color: azure; text-align: center;">
+  <p>Copyright@2021</p>
+</ion-footer>

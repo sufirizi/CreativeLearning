@@ -1,0 +1,49 @@
+<ion-header> 
+  <ion-toolbar color="primary"> 
+  <ion-buttons slot="start" routerLink="..">
+    <ion-back-button></ion-back-button> 
+  </ion-buttons>   
+    <ion-title>Add marks</ion-title>  
+  </ion-toolbar> 
+</ion-header> 
+ 
+  <ion-content class="container ion-padding">
+    <h4 style="text-align: center;">{{name}}</h4>
+    <form #form="ngForm" (ngSubmit)="addmarks(form)" method="post">
+        <div class="primary-input">
+          <ion-select ngModel name="subject">
+            <ion-select-option value="">Select Subject</ion-select-option> <!-- *ngIf="x.name==userDetails?.class"-->
+            <ion-select-option *ngFor="let x of subjects;let i=index" value="{{x.sub}}">{{x.sub}}</ion-select-option>
+          </ion-select>
+        </div> 
+        <div class="primary-input">
+          <ion-label>Date</ion-label>
+          <ion-input type="text" ngModel name="date" placeholder="dd-mm-yyyy"></ion-input>
+        </div>
+        <div class="primary-input">
+          <ion-label>Full marks</ion-label>
+          <ion-input type="text" ngModel name="full_marks[0]"></ion-input>
+        </div> 
+        <div class="primary-input">
+          <ion-label>Marks Obtained</ion-label>
+          <ion-input type="text" ngModel name="marks_obtained"></ion-input> 
+        </div>
+        <div class="primary-input">
+          <ion-select ngModel name="result">
+            <ion-select-option value="">Result</ion-select-option> <!-- *ngIf="x.name==userDetails?.class"-->
+            <ion-select-option value="FAIL">FAIL</ion-select-option>
+            <ion-select-option value="PASS">PASS</ion-select-option>
+          </ion-select>
+        </div>
+        <div class="primary-input">
+          <ion-select ngModel name="remarks">
+            <ion-select-option value="">Remarks</ion-select-option> <!-- *ngIf="x.name==userDetails?.class"-->
+            <ion-select-option *ngFor="let x of remarks;let i=index" value="{{x.remark}}">{{x.remark}}</ion-select-option>
+          </ion-select>
+        </div>
+        <ion-button type="submit" color="primary" class="primary-button" expand="block" shape="round" routerDirection="forward">Submit</ion-button>
+      </form> 
+</ion-content>
+<ion-footer color="primary" style="background-color:#A55EEA; color: azure; text-align: center;">
+  <p>Copyright@2021</p>
+</ion-footer>

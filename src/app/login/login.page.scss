@@ -1,0 +1,55 @@
+ion-content{
+
+  --ion-background-color:#E1D9F2;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  div {
+    width: 100%; 
+    text-align: center;
+
+    h2 {
+      margin-bottom: 50px;
+      font-weight: bold;
+    }
+
+    .forget-passwd {
+      margin-bottom: 26px;
+
+      a {
+        text-decoration: none;
+        font-size: 14px;
+      }
+    }
+
+    .theme-switcher {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 26px;
+
+      ion-label {
+        padding-right: 10px;
+      }
+    }
+
+    .footer {
+      margin-top: 26px;
+
+      a {
+        text-decoration: none;
+        font-size: 14px;
+        color: var(--ion-text-color);
+
+        span {
+          color: var(--ion-color-primary);
+        }
+      }
+    }
+
+  }
+}

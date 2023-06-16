@@ -1,0 +1,18 @@
+<ion-content class="ion-padding">
+  <div class="container ion-padding ion-text-center">
+    <img src="../../assets/unlock.svg" />
+
+    <p>
+      Enter the 4-digit code sent to your phone number/email
+    </p>
+
+    <ng-otp-input (onInputChange)="onOtpChange($event)" [config]="otpConfig"></ng-otp-input>
+
+    <p class="resend no-focus">
+      Didn't receive the code? <span>Resend</span>
+    </p>
+
+    <ion-button color="primary" class="primary-button" expand="block" shape="round">Confirm</ion-button>
+
+  </div>
+</ion-content>

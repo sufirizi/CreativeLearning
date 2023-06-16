@@ -1,0 +1,22 @@
+<ion-header> 
+  <ion-toolbar color="primary"> 
+  <ion-buttons slot="start" routerLink="..">
+    <ion-back-button></ion-back-button> 
+  </ion-buttons>   
+    <ion-title>Videos</ion-title>
+  </ion-toolbar>
+</ion-header> 
+
+<ion-content class="main-content" padding>
+  <ion-card *ngFor="let x of items?.data; let i=index">
+    <ion-item>
+      <ion-label style="text-align: center; font-weight: bold;">{{x.title}}</ion-label>
+    </ion-item>
+    <ion-card-content>
+      <iframe width="100%" height="auto" [src]="getSafeUrl(x.link)" frameborder="0" allowfullscreen></iframe>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+<ion-footer color="primary" style="background-color:#A55EEA; color: azure; text-align: center;">
+  <p>Copyright@2021</p>
+</ion-footer> 

@@ -1,29 +1,114 @@
-<ion-app>
-  <ion-split-pane contentId="main-content">
+<ion-app> 
+  <ion-split-pane contentId="main-content"> 
     <ion-menu contentId="main-content" type="overlay">
-      <ion-content>
+      <ion-content>   
         <ion-list id="inbox-list">
-          <ion-list-header>Inbox</ion-list-header>
-          <ion-note>hi@ionicframework.com</ion-note>
-
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
-            <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
-              <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
-              <ion-label>{{ p.title }}</ion-label>
+          <ion-list-header></ion-list-header>
+          <ion-menu-toggle auto-hide="false">
+            <ion-item  routerLink="/home" lines="none" detail="false">
+              <ion-icon slot="start" name="home"></ion-icon>
+              <ion-label>Home</ion-label>
             </ion-item>
           </ion-menu-toggle>
-        </ion-list>
-
-        <ion-list id="labels-list">
-          <ion-list-header>Labels</ion-list-header>
-
-          <ion-item *ngFor="let label of labels" lines="none">
-            <ion-icon slot="start" ios="bookmark-outline" md="bookmark-sharp"></ion-icon>
-            <ion-label>{{ label }}</ion-label>
+          <ion-menu-toggle auto-hide="false">
+            <ion-item routerLink="/about" lines="none" detail="false">
+              <ion-icon slot="start" name="person"></ion-icon>
+              <ion-label>About Us</ion-label>
+            </ion-item> 
+          </ion-menu-toggle>
+          <ion-menu-toggle auto-hide="false">
+            <ion-item routerLink="/teachers" lines="none" detail="false">
+              <ion-icon slot="start" name="people"></ion-icon>
+              <ion-label>Our Teachers</ion-label>
+            </ion-item>
+          </ion-menu-toggle> 
+          <ion-menu-toggle auto-hide="false">
+            <ion-item routerLink="/download" lines="none" detail="false">
+              <ion-icon slot="start" name="cloud-download"></ion-icon>
+              <ion-label>Download</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle auto-hide="false">
+            <ion-item routerLink="/gkworld" lines="none" detail="false">
+              <ion-icon slot="start" name="cloud-download"></ion-icon>
+              <ion-label>GK World</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle auto-hide="false"> 
+            <ion-item routerLink="/videotopics" lines="none" detail="false">
+              <ion-icon slot="start" name="videocam-outline"></ion-icon>
+              <ion-label>Videos</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle auto-hide="false">
+            <ion-item routerLink="/notice" lines="none" detail="false">
+              <ion-icon slot="start" name="clipboard"></ion-icon>
+              <ion-label>Notice</ion-label>
+            </ion-item> 
+          </ion-menu-toggle>
+          <ion-menu-toggle auto-hide="false">
+            <ion-item routerLink="/classes" lines="none" detail="false">
+              <ion-icon slot="start" name="people"></ion-icon>
+              <ion-label>Our Students</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle auto-hide="false">
+            <ion-item routerLink="/gallery" lines="none" detail="false">
+              <ion-icon slot="start" name="images"></ion-icon>
+              <ion-label>Photo Gallery</ion-label>
+            </ion-item>  
+          </ion-menu-toggle>
+          <ion-menu-toggle auto-hide="false">
+            <ion-item routerLink="/courses" lines="none" detail="false">
+              <ion-icon slot="start" name="list"></ion-icon>
+              <ion-label>Courses</ion-label>
+            </ion-item>
+          </ion-menu-toggle> 
+          <ion-menu-toggle auto-hide="false" *ngIf="cartService.ifloggedin()==1">
+            <ion-item  routerLink="/dashboard" lines="none" detail="false">
+              <ion-icon slot="start" name="person"></ion-icon>
+              <ion-label>My Account</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle auto-hide="false">
+            <ion-item routerLink="/contact" lines="none" detail="false">
+              <ion-icon slot="start" name="chatbubbles"></ion-icon>
+              <ion-label>Contact</ion-label> 
+            </ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle auto-hide="false" *ngIf="cartService.ifloggedin()==1">
+            <ion-item (click)="logoutUser()" routerLink="/login" lines="none" detail="false">
+              <ion-icon slot="start" name="log-out"></ion-icon>
+              <ion-label>Logout</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle auto-hide="false" *ngIf="cartService.ifloggedin()==0">
+            <ion-item routerLink="/login" lines="none" detail="false">
+              <ion-icon slot="start" name="log-out"></ion-icon>
+              <ion-label>Login</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          
+          <!-- <ion-menu-toggle auto-hide="false">
+            <ion-item  routerLink="/support" lines="none" detail="false">
+              <ion-icon slot="start" name="wallet"></ion-icon>
+              <ion-label>Support</ion-label>
+            </ion-item>
+          </ion-menu-toggle> -->
+        <!-- <ion-menu-toggle auto-hide="false">
+          <ion-item routerLink="/order-success" lines="none" detail="false">
+            <ion-icon slot="start" name="log-out"></ion-icon>
+            <ion-label>Login</ion-label>
           </ion-item>
+        </ion-menu-toggle> -->
+          
         </ion-list>
+
       </ion-content>
+
     </ion-menu>
+
     <ion-router-outlet id="main-content"></ion-router-outlet>
+
   </ion-split-pane>
 </ion-app>

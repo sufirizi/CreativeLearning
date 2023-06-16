@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar color="primary"> 
+    <ion-buttons slot="start"> 
+      <ion-menu-button></ion-menu-button>  
+    </ion-buttons>  
+    <ion-title>Our Teachers</ion-title>
+  </ion-toolbar>   
+</ion-header>   
+ 
+<ion-content padding class="main-content">
+  <ion-item *ngFor="let x of items;let i=index"> 
+    <ion-thumbnail slot="start">
+      <img src="{{ x.featured_image_src }}">
+    </ion-thumbnail>
+    <ion-label> 
+      <h2>{{ x.title.rendered }}</h2> 
+      <p>{{ x.acf.degree }}</p>
+    </ion-label>
+  </ion-item>
+</ion-content>
+
+<ion-footer color="primary" style="background-color:#A55EEA; color: azure; text-align: center;">
+  <p>Copyright@2021</p>
+</ion-footer>

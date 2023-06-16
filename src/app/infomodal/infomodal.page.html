@@ -1,0 +1,82 @@
+<ion-header> 
+  <ion-toolbar color="primary"> 
+    <!-- <ion-buttons slot="start"> 
+      <ion-button color="medium" (click)="cancel()">Cancel</ion-button>
+    </ion-buttons> -->
+    <ion-title>{{countryname}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cancel()">close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>  
+  <ion-card class="">
+    <img src="{{singlecountry?.flags.png}}" style="border: 1px solid grey;">
+    <ion-card-header class="ion-inherit-color md hydrated">
+      <ion-card-title role="heading" aria-level="2" style="text-align: center;" class="ion-inherit-color md hydrated">{{singlecountry?.capital}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content class="md card-content-md hydrated">
+      <ion-row>
+        <ion-col size="6">
+          <b>Population</b>
+        </ion-col>
+        <ion-col size="6">
+          {{(singlecountry?.population/1000000).toFixed(2)}} mn
+        </ion-col>
+        <ion-col size="6">
+          <b>Area</b>
+        </ion-col>
+        <ion-col size="6">
+          {{singlecountry?.area}} sq. km
+        </ion-col>
+        <ion-col size="6">
+          <b>Languages</b>
+        </ion-col>
+        <ion-col size="6">
+          {{singlecountry?.languages[0].name}}
+        </ion-col>
+        <ion-col size="6">
+          <b>Currencies</b>
+        </ion-col>
+        <ion-col size="6">
+          {{singlecountry?.currencies[0].name}} ({{singlecountry?.currencies[0].symbol}})
+        </ion-col>
+        <ion-col size="6">
+          <b>Currency Code</b>
+        </ion-col>
+        <ion-col size="6">
+          {{singlecountry?.currencies[0].code}}
+        </ion-col>
+        <ion-col size="6">
+          <b>Native Name</b>
+        </ion-col>
+        <ion-col size="6">
+          {{singlecountry?.nativeName}}
+        </ion-col>
+        <ion-col size="6" *ngIf="singlecountry?.regionalBlocs[0]?.name">
+          <b>Regional Block</b>
+        </ion-col>
+        <ion-col size="6" *ngIf="singlecountry?.regionalBlocs[0]?.name">
+          {{singlecountry?.regionalBlocs[0]?.name+' ('+singlecountry?.regionalBlocs[0]?.acronym+')'}}
+        </ion-col>
+        <ion-col size="6">
+          <b>Sub Region</b>
+        </ion-col>
+        <ion-col size="6">
+          {{singlecountry.subregion}}
+        </ion-col>
+        <ion-col size="6">
+          <b>Timezone</b>
+        </ion-col>
+        <ion-col size="6">
+          {{singlecountry.timezones[0]}}
+        </ion-col>
+      </ion-row>
+
+      <h4 class="post-head">States</h4> 
+      <ion-row>
+        <ion-col size="12" *ngFor="let x of items;let i=index" [routerLink]="[x.name]">{{x.name}}</ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

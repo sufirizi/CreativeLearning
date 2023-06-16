@@ -1,0 +1,46 @@
+<ion-header>  
+  <ion-toolbar color="primary"> 
+  <ion-buttons slot="start" routerLink="..">
+    <ion-back-button></ion-back-button>
+  </ion-buttons>  
+    <ion-title>Student's List</ion-title> 
+  </ion-toolbar>
+</ion-header> 
+
+<ion-content> 
+  <h1 style="text-align: center; font-weight: bold;">{{items?.month}}</h1>
+  <ion-item *ngFor="let x of items?.students;let i=index"> <!-- , x.uid -->
+    <div *ngIf="x.isStar==1" style="background-color: rgb(172, 231, 214); color: white; padding: 5px; width: 100%;">
+    <ion-label> 
+      <h1>{{ x?.post_title }}</h1> 
+      <p>Present: <b>{{ x?.present }}</b></p>
+      <p>Absent: <b>{{ x?.absent }}</b></p>
+      <p>Total exams: <b>{{ x?.total_test }}</b></p>
+      <p>Total Marks: <b>{{ x?.full_marks }}</b></p>
+      <p>Total Obtained: <b>{{ x?.marks_obtained }}</b></p>
+      <p>Percentage: <b>{{ x?.percent }}%</b></p>
+      <p>Results: <b>{{ x?.result }}</b></p>
+    </ion-label>
+    </div>
+    <div *ngIf="x.isStar==0">
+      <ion-label>  
+        <h1>{{ x?.post_title }}</h1> 
+        <p>Present: <b>{{ x?.present }}</b></p>
+        <p>Absent: <b>{{ x?.absent }}</b></p>
+        <p>Total exams: <b>{{ x?.total_test }}</b></p>
+        <p>Total Marks: <b>{{ x?.full_marks }}</b></p>
+        <p>Total Obtained: <b>{{ x?.marks_obtained }}</b></p>
+        <p>Percentage: <b>{{ x?.percent }}%</b></p>
+        <p>Results: <b>{{ x?.result }}</b></p>
+      </ion-label>
+      </div>
+  </ion-item>
+  <ion-item *ngIf="items==''">  
+    <ion-label>
+      <h3>No students available!</h3>
+    </ion-label>
+  </ion-item>
+</ion-content>
+<ion-footer color="primary" style="background-color:#A55EEA; color: azure; text-align: center;">
+  <p>Copyright@2021</p>
+</ion-footer>

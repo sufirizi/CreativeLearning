@@ -1,6 +1,15 @@
 {
-	"appId": "io.ionic.starter",
+	"appId": "cl.ionic.creativelearning",
 	"appName": "CreativeLearning",
 	"webDir": "www",
-	"bundledWebRuntime": false
+	"bundledWebRuntime": false,
+	"plugins": {
+		"SplashScreen": {
+		  "launchAutoHide": false,
+		  "showSpinner": true
+		},
+		"PushNotifications": {
+		  "presentationOptions": ["badge", "sound", "alert"]
+		}
+	  }
 }

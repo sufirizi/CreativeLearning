@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar color="primary"> 
+    <ion-buttons slot="start"> 
+      <ion-menu-button></ion-menu-button>  
+    </ion-buttons>  
+    <ion-title>Contact</ion-title>
+  </ion-toolbar>   
+</ion-header> 
+
+<ion-content padding style="background: url('/assets/imgs/contact.png');"> 
+  <div><img src="{{ options?.acf.banner }}"></div>
+  <h3 style="text-align: center;">{{ singlepage?.title.rendered }}</h3>
+  <div>
+      <p class="heading">Mobile Numbers:</p>
+      <p><ion-icon name="call" item-start></ion-icon> {{ options?.acf.contact }}</p>
+      <p><ion-icon name="md-phone-portrait" item-start></ion-icon> {{ options?.acf.contact2 }}</p>
+      <p class="heading">Email:</p>
+      <p><ion-icon name="ios-mail" item-start></ion-icon> {{ options?.acf.email }}</p>
+      <p class="heading">Address:</p>
+      <p><ion-icon name="ios-archive" item-start></ion-icon> {{ options?.acf.address }}</p>
+  </div>
+  <div class="social" padding>
+    <p>
+      <a href="{{ options?.acf.facebook }}" target="_blank" style="text-decoration: none;"><ion-icon name="logo-facebook" item-start></ion-icon> See Us On Facebook</a>
+    </p>
+    <p>
+      <a href="{{ options?.acf.youtube }}" target="_blank" style="text-decoration: none;"><ion-icon name="logo-youtube" item-start></ion-icon> Youtube Videos</a>
+    </p>
+    <p>
+        <a href="{{ options?.acf.google_plus }}" target="_blank" style="text-decoration: none;"><ion-icon name="logo-google" item-start></ion-icon> Find Us On Google </a>
+      </p>
+    </div>
+  
+  <div>
+    <h2 style="text-align: center;">Contact Us</h2>
+  <form (ngSubmit)="processForm()" style="text-align: center; padding: 5px;">
+    <!-- name -->
+    <div class="field">
+      <input type="text" name="name" class="input" placeholder="Your Name" [(ngModel)]="name">
+    </div>
+  
+    <!-- mobile -->
+    <div class="field">
+      <input type="tel" name="mobile" class="input" placeholder="Your Mobile Number" [(ngModel)]="mobile" >
+    </div>
+  
+    <!-- email -->
+    <div class="field">
+      <input type="email" name="email" class="input" placeholder="Your Email" [(ngModel)]="email" >
+    </div>
+  
+    <!-- message -->
+    <div class="field">
+      <textarea class="textarea" name="message" placeholder="Write Your Message Here" [(ngModel)]="message"></textarea>
+    </div>
+    <p style="color: green;">{{ success }}</p>
+    <button type="submit" class="sub_button is-danger is-large">Submit</button>
+  
+  </form>
+  </div>
+    <!-- {{ options?.acf.google_map }} -->
+  </ion-content>
+  <ion-footer color="primary" style="background-color:#A55EEA; color: azure; text-align: center;">
+    <p>Copyright@2021</p>
+  </ion-footer>

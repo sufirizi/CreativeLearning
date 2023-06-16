@@ -24,3 +24,106 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+* {
+  font-family: 'Lato', sans-serif;
+}
+
+.margin-bottom-10 {
+  margin-bottom: 10px !important;
+}
+
+.primary-input {
+  position: relative;
+  margin: 26px 0 26px 0;
+
+  ion-label {
+    position: absolute;
+    top: -10px;
+    background: var(--ion-background-color);
+    z-index: 20;
+    left: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  ion-input {
+    border: 1px solid #C1C1C1;
+    border-radius: 10px;
+    text-align: left;
+    padding: 5px 15px 5px 15px !important;
+    color: #A8A8A8;
+  }
+}
+
+.primary-button {
+  position: relative;
+  height: 45px;
+  margin-bottom: 15px;
+  --box-shadow: none;
+}
+
+.primary-button::after {
+  content: " ";
+  position: absolute;
+  width: 80%;
+  right: 10%;
+  bottom: 0;
+  top: 5px;
+  height: 40px;
+  z-index: -1;
+  -webkit-box-shadow: 0px 20px 20px -17px rgba(165, 94, 234, 0.53);
+  -moz-box-shadow: 0px 20px 20px -17px rgba(165, 94, 234, 0.53);
+  box-shadow: 0px 20px 20px -17px rgba(165, 94, 234, 1);
+}
+
+.social {
+  margin-top: 26px;
+
+  ion-icon {
+    font-size: 32px;
+    padding-right: 15px;
+  }
+
+  ion-icon:active {
+    opacity: 0.8;
+  }
+
+  .fb {
+    color: #4267B2;
+  }
+
+  .google {
+    color: #FF3D00;
+  }
+
+  .apple {
+    color: var(--ion-text-color);
+  }
+}
+
+.cutom-otp {
+  width: 50px !important;
+  height: 50px !important;
+  background: var(--ion-background-color);
+}
+
+.ios {
+  .cutom-otp:focus {
+    outline: none;
+    border: 1px solid var(--ion-color-primary);
+  }
+}
+
+.md {
+  .cutom-otp:focus {
+    outline: var(--ion-color-primary) auto 1px !important;
+  }
+}
+
+.no-focus:focus {
+  outline: none !important;
+  border: none !important;
+}

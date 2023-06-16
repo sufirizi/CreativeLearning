@@ -1,0 +1,158 @@
+<ion-header>
+  <ion-toolbar color="primary"> 
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>  
+    </ion-buttons>  
+    <ion-title>Dashboard</ion-title> 
+  </ion-toolbar>   
+</ion-header> 
+
+<ion-content fullscreen="true"> 
+  <ion-list>  
+    <ion-item>  
+      <ion-grid> 
+        <ion-row>
+          <ion-col size="12" class="ion-text-center" *ngIf="userDetails?.image!==null" [routerLink]="['/changedp/', pid]">
+            <img src="{{userDetails?.image}}" height="100" width="100" style="border-radius: 10px;">
+          </ion-col>
+          <ion-col size="12" class="ion-text-center" *ngIf="userDetails?.image==null" [routerLink]="['/changedp/', pid]">
+            <img src="../assets/imgs/no_photo.jpg" height="100" width="100" style="border-radius: 10px;">
+          </ion-col>
+        </ion-row>
+        <ion-row>  
+          <ion-col size="12" class="ion-text-center"> 
+            <b>{{userDetails?.name}}</b><br>  
+            <b style="font-size: 12px;"><span style="color:rgb(91, 13, 236);">ID:</span> #{{id}}</b><br>
+            <b style="font-size: 12px;"><span style="color:rgb(91, 13, 236);" *ngIf="role!=='teacher'">Class: </span>{{userDetails?.meta.class}}</b>
+            <b style="font-size: 12px;" *ngIf="role=='teacher'"><span style="color:rgb(91, 13, 236);">Role:</span> {{role}}</b><br>
+            <b style="font-size: 12px;"><span style="color:rgb(91, 13, 236);">Email:</span> {{email}}</b><br>
+            <b style="font-size: 12px;"><span style="color:rgb(91, 13, 236);">Mobile:</span> {{userDetails?.meta.mobile}}</b><br>
+            <b style="font-size: 12px;" *ngIf="role=='student'"><span style="color:rgb(91, 13, 236);">Father's name:</span> {{userDetails?.meta.father}}</b><br>
+            <b style="font-size: 12px;"><span style="color:rgb(91, 13, 236);">Registered on:</span> {{userDetails?.joined}}</b><br>
+            <!-- <b style="font-size: 12px;"><span style="color:skyblue;">Stock:</span> {{prod.data?.product_stock}} Left</b><br>
+            <b style="font-size: 12px;"><span style="color:skyblue;">Tags:</span> {{prod.data?.recipe_tags}}</b><br><br> -->
+          </ion-col>  
+        </ion-row>
+        <ion-row class="ion-align-items-center" *ngIf="role=='student'">
+          <ion-col size="12">
+            <ion-button expand="block" style="border-radius: 5px;" [routerLink]="['/editstudent/', id, pid]">
+              EDIT PROFILE
+            </ion-button> 
+          </ion-col>  
+        </ion-row> 
+        <ion-row>
+          <ion-col>
+            <div class="theme-switcher"> 
+              <ion-label>
+                Toggle Dark Theme
+              </ion-label>
+              <ion-toggle slot="end" [checked]="isDarkMode" (ionChange)="onDarkMode($event)"></ion-toggle>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>  
+  </ion-list>
+
+  <ion-list id="inbox-list" *ngIf="role=='contributor'">
+    <ion-item routerLink="/upload" lines="none" detail="false">
+      <ion-icon slot="start" name="cloud-upload-outline"></ion-icon>
+      <ion-label>Upload Files</ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-list id="inbox-list" *ngIf="role=='student'">
+      <ion-item  [routerLink]="['/feerecord/', id]" lines="none" detail="false">
+        <ion-icon slot="start" name="library-outline"></ion-icon>
+        <ion-label>Fee Record</ion-label> 
+      </ion-item>
+      <ion-item [routerLink]="['/attendance/', id]" lines="none" detail="false">
+        <ion-icon slot="start" name="library-outline"></ion-icon>
+        <ion-label>My Attendance</ion-label>
+      </ion-item>
+      <ion-item [routerLink]="['/testreport/', pid]" lines="none" detail="false">
+        <ion-icon slot="start" name="library-outline"></ion-icon>
+        <ion-label>Test's Report</ion-label>
+      </ion-item> 
+      <ion-item routerLink="/upload" lines="none" detail="false">
+        <ion-icon slot="start" name="cloud-upload-outline"></ion-icon>
+        <ion-label>Upload Files</ion-label> 
+      </ion-item> 
+  </ion-list>  
+  <ion-list id="inbox-list" *ngIf="role=='teacher'">
+    <ion-searchbar animated="true" placeholder="Search Student" (ionChange)="searchStudent($event)"></ion-searchbar>
+    <ion-list *ngIf="sresults">
+      <ion-item *ngFor="let result of sresults.data">
+        <ion-thumbnail slot="start" *ngIf="result.image!==false">
+          <img src="{{ result.image}}" >
+        </ion-thumbnail>
+        <ion-thumbnail slot="start" *ngIf="result.image==false">
+          <img src="../assets/imgs/no_photo.jpg" >
+        </ion-thumbnail>
+        <ion-label> 
+          <h3>{{ result.title }}</h3>
+          <ion-button [routerLink]="['/attendance/', result.uid]">
+            Attendance
+            <ion-icon slot="end" name="pencil"></ion-icon>
+          </ion-button><br>
+          <ion-button [routerLink]="['/studentfeerecord/', result.ID]">
+            Fee
+            <ion-icon slot="end" name="pencil"></ion-icon>
+          </ion-button><br>
+          <ion-button [routerLink]="['/editstudent/', result.uid, result.ID]">
+            Edit Profile
+            <ion-icon slot="end" name="pencil"></ion-icon>
+          </ion-button><br>
+          <ion-button [routerLink]="['/changedp/', result.ID]">
+            EDIT DP
+            <ion-icon slot="end" name="pencil"></ion-icon>
+          </ion-button>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+    <ion-list *ngIf="studentResult==false">
+      <ion-item>No students found</ion-item> 
+    </ion-list>
+    
+    <!-- <ion-item  routerLink="/changedp" lines="none" detail="false">
+      <ion-icon slot="start" name="calculator"></ion-icon>
+      <ion-label>Change DP</ion-label>
+    </ion-item> -->
+    <ion-item routerLink="/classlist" lines="none" detail="false">
+      <ion-icon slot="start" name="library-outline"></ion-icon>
+      <ion-label>Update attendance</ion-label>
+    </ion-item> 
+    <ion-item routerLink="/checkattendance" lines="none" detail="false">
+      <ion-icon slot="start" name="library-outline"></ion-icon>
+      <ion-label>Check attendance</ion-label> 
+    </ion-item>
+    <ion-item routerLink="/checkfee" lines="none" detail="false">
+      <ion-icon slot="start" name="library-outline"></ion-icon>
+      <ion-label>Update fee record</ion-label>
+    </ion-item>
+    <ion-item routerLink="/listformarks" lines="none" detail="false">
+      <ion-icon slot="start" name="person-add-outline"></ion-icon>
+      <ion-label>Add marks</ion-label>
+    </ion-item>
+    <ion-item routerLink="/liststatus" lines="none" detail="false">
+          <ion-icon slot="start" name="person-add-outline"></ion-icon>
+          <ion-label>Monthly Status</ion-label>
+        </ion-item>
+    <ion-item routerLink="/addstudent" lines="none" detail="false">
+      <ion-icon slot="start" name="person-add-outline"></ion-icon>
+      <ion-label>Add a student</ion-label>
+    </ion-item>
+    <ion-item routerLink="/report" lines="none" detail="false" *ngIf="id=='81'||id=='201'">
+      <ion-icon slot="start" name="library-outline"></ion-icon>
+      <ion-label>Get Report</ion-label>
+    </ion-item>
+    <ion-item routerLink="/upload" lines="none" detail="false">
+      <ion-icon slot="start" name="cloud-upload-outline"></ion-icon>
+      <ion-label>Upload Files</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
+<ion-footer translucent="true" class="ion-no-border" mode="md">
+  <ion-toolbar color="translucent">
+    <ion-button expand="block" class="main-button" (click)="logoutUser()">Logout</ion-button>
+  </ion-toolbar>
+</ion-footer>
