@@ -10,7 +10,7 @@ export class ApiServiceService {
   simpleObservable = new Subject();
   simpleObservable$ = this.simpleObservable.asObservable();
   response: any;
-  public REST_API_SERVER = 'https://creativelearning.net.in/wp-json/wp/v2/';
+  public REST_API_SERVER = '';
   public SERVER = 'https://creativelearning.net.in/';
   constructor(private httpClient: HttpClient) {
 

@@ -29,4 +29,8 @@ npm-debug.log*
 /platforms
 /plugins
 /www
+<<<<<<< HEAD
 /src/app/api-service.service.ts
+=======
+/src/app/api-service.service.ts
+>>>>>>> bd99c975f6abdc176f9ef5d2cf1a01211a34a122
